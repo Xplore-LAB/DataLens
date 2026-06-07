@@ -1,0 +1,74 @@
+{
+  "siteName": "排放控制示例",
+  "section": "排放控制性能分析",
+  "windowLabel": "示例窗口 (7月11日 10:00-14:00)",
+  "pollutant": "NOx",
+  "pollutantUnit": "mg/m³",
+  "regulator": "脱硝剂",
+  "regulatorShort": "喷氨",
+  "regulatorUnit": "dose",
+  "regulatoryLimit": 50,
+  "hourMarkers": [],
+  "sliders": {
+    "trigger": {
+      "label": "NOx 触发线",
+      "min": 35,
+      "max": 50,
+      "val": 40,
+      "step": 0.5,
+      "unit": "mg/m³",
+      "desc": "NOx低于此线时喷氨可视为"低NOx喷氨"，是节药分析的核心参照线。",
+      "group": "common"
+    },
+    "spray": {
+      "label": "喷氨识别阈值",
+      "min": 0.5,
+      "max": 20,
+      "val": 2,
+      "step": 0.5,
+      "unit": "",
+      "desc": "dose（喷氨量）大于此值才算"实际在喷氨"，用于排除微量波动。",
+      "group": "common"
+    },
+    "discount": {
+      "label": "节药折扣系数",
+      "min": 5,
+      "max": 30,
+      "val": 15,
+      "step": 1,
+      "unit": "%",
+      "desc": "低NOx喷氨不能100%省掉（工艺安全余量），此系数打折后才是可实现的节药量。",
+      "group": "common"
+    },
+    "dynCeil": {
+      "label": "期望目标上限",
+      "min": 50,
+      "max": 500,
+      "val": 120,
+      "step": 5,
+      "unit": "mg/m³",
+      "desc": "目标线最多上浮到这个值，防止余量用完后超标。",
+      "group": "advanced"
+    },
+    "dynFloor": {
+      "label": "期望目标下限",
+      "min": 5,
+      "max": 40,
+      "val": 15,
+      "step": 1,
+      "unit": "mg/m³",
+      "desc": "目标线最低压到这个值，防止过度收紧导致频繁加药。",
+      "group": "advanced"
+    },
+    "followCoeff": {
+      "label": "跟随系数",
+      "min": 10,
+      "max": 100,
+      "val": 55,
+      "step": 1,
+      "unit": "",
+      "desc": "目标线跟随预算线的灵敏度。0.35=保守（缓慢收紧），0.75=激进（快速反应）。",
+      "group": "advanced"
+    }
+  }
+}
